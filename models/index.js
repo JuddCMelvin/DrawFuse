@@ -27,7 +27,8 @@ fs
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    console.log('Loading model file:', file);  // Add this to see which file is causing the issue
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);  // This requires a function
     db[model.name] = model;
   });
 
